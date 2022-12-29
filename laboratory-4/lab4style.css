@@ -1,0 +1,67 @@
+
+body {
+      background-color: #ffffcc;
+      color: #330000;
+      font-family: Verdana;
+    }
+
+    #container {
+      margin-top: 20px;
+      margin-left: 20%;
+      margin-right: 20%;
+      height: 480px;
+      width: 750px;
+      border-style: solid;
+      padding: 0px;
+    }
+
+    #logo {
+      background-color: #ccaa66;
+      text-align: center;
+      border-bottom-style: solid;
+      border-top-style: solid;
+      height: 80px;
+      margin: 0px;
+
+    }
+
+    #leftcolumn {
+      background-color: #e8d882;
+      position: relative;
+      padding-left: 20px;
+      left: 0px;
+      width: 130px;
+      height: 320px;
+      float: left;
+      white-space: pre-line;
+      text-shadow: 4px 4px 3px darkred;
+    }
+
+    #navBar {
+      text-align: left;
+    }
+
+    #rightcolumn {
+      background-color: #f1e8b0;
+      position: relative;
+      width: 580px;
+      height: 300px;
+      padding: 10px;
+      float: right;
+    }
+
+    #CoffeePic {
+      position: absolute;
+      right: 20px;
+    }
+
+    #footer {
+      background-color: #ccaa66;
+      border-top-style: solid;
+      height: 62px;
+      text-align: center;
+      font-style: italic;
+      width: 750px;
+      margin-top: 320px;
+      padding-top: 10px;
+    }
