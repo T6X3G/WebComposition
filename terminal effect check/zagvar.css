@@ -1,0 +1,26 @@
+body {
+    background-color: #EEE;
+}
+
+.container {
+    font-family: sans-serif;
+    width: 450px;
+    margin: 25vh auto;
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+    background-color: linear-gradient(to right, #1771f1 0%, #17d1f1 100%);
+
+    -webkit-background-clip: text;
+ 
+
+}
+#text{
+    background-color: red;
+}
+.un{
+    font-weight: lighter;
+}
+.hidden {
+    opacity: 0;
+}

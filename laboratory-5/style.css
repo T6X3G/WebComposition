@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-color: lightseagreen;
+  }
+  .logo {
+    background-image: url("./images/barhas.jpg");
+     width: 50px;
+    height: 50px;
+    margin-left: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: width 1s;
+  }
+  
+  .logo:hover {
+    width: 100px;
+    height: 10;
+    
+  }
+  .header {
+   background-color: lightcoral;
+    padding: 10px;
+    text-align: center;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .head {
+    overflow: hidden;
+    background-color: lightcyan;
+  }
+  
+  .head a {
+    text-decoration: none;
+    font-size: 25px;
+    opacity: 0.5;
+    float: left;
+    display: block;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+  }
+  .head a:hover {
+    background-color: #4717F6;
+    color: white;
+    opacity: 1;
+  }
+  .column2{
+    float: left;
+    width: 25%;
+    padding: 25px;
+  }
+  .column1 {
+    float: left;
+    width: 75%;
+    padding: 35px;
+  }
+  .medee {
+    background-color: #424949 ;
+    padding: 20px;
+    margin-top: 20px;}
+  .jmedee{  
+    background-color: grey;
+    padding: 10px;
+    margin-top: 10px;
+  
+  }
+  .zurag{
+    float: left;
+    width: 30%;
+    padding: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: transform .2s;
+  }
+  .zurag:hover{
+    transform: scale(1.5);
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .footer {
+    padding: 20px;
+    background-color: lightcoral;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  a.visited {
+    color: blue;
+  }

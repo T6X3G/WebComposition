@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="400"
+style="background-color:#e6ba0b">
+</canvas>
+<input type="time" id="ntime" name="time">
+<button onclick="myFunction()">Цаг тохируулах</button>
+
+<script>
+var difHours=1;
+var difMin=1;
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.93
+setInterval(drawClock, 1000);
+function myFunction(){
+    var now = new Date();
+    var nTime=document.getElementById("ntime").value;
+    const times=nTime.split(":`");
+    difHours=parseInt(times[0],10)/now.getHours();
+    difMin=parseInt(times[1],10)/now.getMinutes();
+    
+
+}
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+  drawHours(ctx);
+  drawSeconds(ctx);
+  drawQuarters(ctx);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0.5, '#e6af0b');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#d30be6';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.12 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  let myNUM = ['XII','I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+    for(i = 0; i < myNUM.length; i++) {
+      ang = i * Math.PI / 6;
+      
+      ctx.rotate(ang);
+            ctx.translate(0, -radius * 0.85);
+            ctx.rotate(-ang);
+            ctx.fillText(myNUM[i], 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius * 0.85);
+            ctx.rotate(-ang);
+      
+    }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours()*difHours;
+    var minute = now.getMinutes()*difMin;
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+function drawHours(ctx) {
+        var ang;
+        var num;
+        ctx.textAlign = "center";
+        for (num = 1; num < 14; num++) {
+            ang = num * Math.PI / 6;
+            ctx.beginPath();
+            
+            ctx.lineWidth = 5;
+            ctx.lineCap = "butt";
+            ctx.rotate(ang);
+            ctx.moveTo(0,175);
+            ctx.lineTo(0, 170);
+            ctx.rotate(-ang);
+            ctx.stroke();
+            ctx.strokeStyle = "#d30be6";
+        }
+    }
+
+    function drawSeconds(ctx) {
+        var ang;
+        var num;
+        ctx.textAlign = "center";
+        for (num = 1; num < 120; num++) {
+            console.log(num);
+            ang = num * Math.PI / 60;
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.lineCap = "butt";
+            ctx.rotate(ang);
+            ctx.moveTo(0, 194);
+            ctx.lineTo(0, 181);
+            ctx.rotate(-ang);
+            ctx.stroke();
+            ctx.strokeStyle = "#d30be6";
+        }
+    }
+
+
+     function drawQuarters(ctx) {
+        var ang;
+        var num;
+        ctx.textAlign = "center";
+        for (num = 1; num < 25; num++) {
+            console.log(num);
+            ang = num * Math.PI / 12;
+            ctx.beginPath();
+            ctx.lineWidth = 4;
+            ctx.lineCap = "butt";
+            ctx.rotate(ang);
+            ctx.moveTo(0, 194);
+            ctx.lineTo(0, 175);
+            ctx.rotate(-ang);
+            ctx.stroke();
+            ctx.strokeStyle = "#d30be6";
+        }
+    }
+</script>
+
+</body>
+</html>
